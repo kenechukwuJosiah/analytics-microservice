@@ -16,6 +16,8 @@ ENV PYTHONUNBUFFERED=1
 
 USER root
 
+COPY ./requirements.txt requirements.txt
+
 WORKDIR /src
 
 # Dependencies are installed during build time in the container itself so we don't have OS mismatch
