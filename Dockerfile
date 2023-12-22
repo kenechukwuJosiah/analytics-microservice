@@ -4,8 +4,13 @@
 # If you need more help, visit the Dockerfile reference guide at
 # https://docs.docker.com/engine/reference/builder/
 
+
 ARG PYTHON_VERSION=3.12.0
 FROM python:${PYTHON_VERSION}-slim as base
+
+ENV _DB_USERNAME $DB_USERNAME
+ENV _DB_PASSWORD $DB_PASSWORD
+
 
 # Prevents Python from writing pyc files.
 ENV PYTHONDONTWRITEBYTECODE=1
@@ -30,4 +35,4 @@ COPY . .
 EXPOSE 8000
 
 # Run the application.
-CMD python app.py
+CMD DB_USERNAME=_DB_USERNAME DB_PASSWORD=_DB_PASSWORD python app.py
