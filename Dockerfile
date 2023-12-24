@@ -8,8 +8,8 @@
 ARG PYTHON_VERSION=3.12.0
 FROM python:${PYTHON_VERSION}-slim as base
 
-ENV _DB_USERNAME $DB_USERNAME
-ENV _DB_PASSWORD $DB_PASSWORD
+ENV DB_USERNAME $DB_USERNAME
+ENV DB_PASSWORD $DB_PASSWORD
 
 
 # Prevents Python from writing pyc files.
@@ -35,4 +35,4 @@ COPY . .
 EXPOSE 8000
 
 # Run the application.
-CMD DB_USERNAME=_DB_USERNAME DB_PASSWORD=_DB_PASSWORD python app.py
+CMD python app.py
