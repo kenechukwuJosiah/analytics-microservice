@@ -9,7 +9,7 @@ phases:
   build:
     commands:
       - echo Building the Docker image...
-      - docker build -t $IMAGE_REPO_NAME:$CODEBUILD_BUILD_NUMBER --build-arg DB_PASSWORD=$DB_PASSWORD --build-arg DB_USERNAME=$DB_USERNAME .
+      - docker build -t $IMAGE_REPO_NAME:$CODEBUILD_BUILD_NUMBER --build-arg DB_PASSWORD=$DB_PASSWORD --build-arg DB_USERNAME=$DB_USERNAME --build-arg DB_HOST=10.100.35.80 .
       - docker tag $IMAGE_REPO_NAME:$CODEBUILD_BUILD_NUMBER $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$CODEBUILD_BUILD_NUMBER
       - echo $IMAGE_REPO_NAME $CODEBUILD_BUILD_NUMBER $DB_PASSWORD $DB_USERNAME $DB_HOST
 
