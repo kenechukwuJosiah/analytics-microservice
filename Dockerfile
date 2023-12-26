@@ -2,6 +2,14 @@ FROM python:3.10-slim-buster
 
 USER root
 
+ARG DB_HOST
+ARG DB_USERNAME
+ARG DB_PASSWORD
+
+ENV DB_USERNAME=$DB_USERNAME
+ENV DB_PASSWORD=$DB_PASSWORD
+ENV DB_HOST=$DB_HOST
+
 WORKDIR /app
 
 COPY ./requirements.txt requirements.txt
