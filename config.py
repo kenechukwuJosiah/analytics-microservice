@@ -20,8 +20,6 @@ print(db_host)
 print(db_port)
 
 db = SQLAlchemy(app)
-print(db)
 
 app.logger.setLevel(logging.DEBUG)
-print(app)
 
