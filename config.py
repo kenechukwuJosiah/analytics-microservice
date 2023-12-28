@@ -11,7 +11,7 @@ db_port = os.environ.get("DB_PORT", "5432")
 db_name = os.environ.get("DB_NAME", "postgres")
 
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = f"postgresql://{db_username}:{db_password}@{db_host}:{db_port}/{db_name}"
+app.config["SQLALCHEMY_DATABASE_URI"] = os.environ["DB_URL"]
 
 print(db_username)
 print(db_password)
